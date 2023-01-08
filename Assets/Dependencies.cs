@@ -29,5 +29,18 @@ namespace NPCDependencies
 }
 namespace TaskSystem
 {
-
+    [System.Serializable]
+    public class TaskInfo
+    {
+        public string taskName;
+        public List<SubtaskInfo> subtasks = new();
+    }
+    [System.Serializable]
+    public class SubtaskInfo
+    {
+        public string taskContent;
+        public int limit = 1;
+        public int current = 0;
+        public UnityEvent finishedEvent;
+    }
 }

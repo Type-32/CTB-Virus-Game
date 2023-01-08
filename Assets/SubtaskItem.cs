@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class SubtaskItem : MonoBehaviour
 {
-    [SerializeField] Text content, demand, accomplished;
+    [SerializeField] Text content, demand;
     [SerializeField] Image icon;
     [SerializeField] CanvasGroup group;
-    public void SetAppearance(string text, string demand, string accomplished, Sprite icon = null)
+    public void SetAppearance(string text, string demand, Sprite icon = null)
     {
         this.content.text = text;
         this.demand.text = demand;
-        this.accomplished.text = accomplished;
         this.icon.sprite = icon;
     }
     public void Finished()

@@ -18,7 +18,7 @@ public class InGameUI : MonoBehaviour
     [Space, Header("Task UI")]
     [SerializeField] GameObject taskUI;
     [SerializeField] Text title;
-    [SerializeField] GameObject taskPrefab;
+    [SerializeField] GameObject taskPrefab, subtaskPrefab;
     float duration;
     void Awake()
     {

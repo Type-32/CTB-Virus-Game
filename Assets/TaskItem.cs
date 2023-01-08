@@ -17,4 +17,8 @@ public class TaskItem : MonoBehaviour
     {
         group.alpha = 0.3f;
     }
+    public void AddSubtask()
+    {
+
+    }
 }
