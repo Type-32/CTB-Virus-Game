@@ -30,10 +30,40 @@ namespace NPCDependencies
 namespace TaskSystem
 {
     [System.Serializable]
+    public class TaskableObjectInfo
+    {
+        public string searchKey = "";
+        public int searchCode = 0;
+        public string objectName = "";
+    }
+    [System.Serializable]
     public class TaskInfo
     {
         public string taskName;
         public List<SubtaskInfo> subtasks = new();
+        public string treeKey;
+        public int treeID = 0;
+        public void SetSearchID(string key, int code, int index = -1){
+            if(index == -1){
+                foreach(SubtaskInfo tp in subtasks){
+                    tp.searchCode = code;
+                    tp.searchKey = key;
+                }
+            }else{
+                subtasks[index].searchCode = code;
+                subtasks[index].searchKey = key;
+            }
+        }
+        public SubtaskInfo ContainsSearchID(string key, int code){
+            SubtaskInfo success = null;
+            foreach(SubtaskInfo tp in subtasks){
+                if(tp.Identify(key,code)){
+                    success = tp;
+                    break;
+                }
+            }
+            return success;
+        }
     }
     [System.Serializable]
     public class SubtaskInfo
@@ -42,5 +72,12 @@ namespace TaskSystem
         public int limit = 1;
         public int current = 0;
         public UnityEvent finishedEvent;
+        public string searchKey;
+        public int searchCode = 0;
+        public bool Identify(string key, int code){
+            bool success = false;
+            if(key == searchKey && code == searchCode) success = true;
+            return success;
+        }
     }
 }

@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEditor;
 using NPCDependencies;
+using TaskSystem;
 
 public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
 {
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
         PlayerAttributes.player = this;
         PlayerInteraction.player = this;
         PlayerTasks.player = this;
+        PlayerTasks.player = this;
         PlayerStates.player = this;
         PlayerMovement.player = this;
         PlayerCamera.player = this;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
         PlayerMovement.UpdateMovement();
         PlayerCamera.UpdateComponent();
         PlayerInteraction.UpdateLogic();
+        PlayerTasks.UpdateComponent();
 
         if (Input.GetKeyDown(KeyCode.RightAlt))
         {
@@ -347,6 +350,7 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
     {
         public static PlayerController player;
         static bool enabled = true;
+        static List<TaskInfo> taskInfos;
         public static void SetComponentActive(bool boolean)
         {
             enabled = boolean;
@@ -354,6 +358,26 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
         public static void UpdateComponent()
         {
             if (!enabled) return;
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                CheckInteraction();
+            }
+            //if()
+        }
+        static void CheckAccomplishment(TaskInfo info){
+            if(info.subtasks.Count >= 1){
+                foreach(SubtaskInfo tp in info.subtasks){
+
+                }
+            }
+        }
+        static void CheckInteraction(){
+            RaycastHit hit;
+            if (Physics.Raycast(player.cameraHolder.transform.position, player.cameraHolder.transform.forward, out hit, 3f))
+            {
+                ITaskableObject temp = hit.collider.GetComponent<ITaskableObject>();
+                temp?.ConsumeObject(player);
+            }
         }
     }
     private void OnDrawGizmosSelected()

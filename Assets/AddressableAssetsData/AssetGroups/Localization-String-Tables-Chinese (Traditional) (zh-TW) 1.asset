@@ -16,13 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 28e58909fecd38744b6dc717f81c6c84
-  m_SerializeEntries:
-  - m_GUID: 5c3ddc81636aa33459787faa7381fa4a
-    m_Address: HUD Texts_zh-TW
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-zh-TW
-    - Preload
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 91ff2d592cec1d34c95bcbdbe5a2de9d, type: 2}
   m_SchemaSet:

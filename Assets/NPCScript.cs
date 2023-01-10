@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NPCDependencies;
 
-public class NPCScript : MonoBehaviour, IDialogueSender
+public class NPCScript : MonoBehaviour, IDialogueSender, ITaskDispatcher
 {
     public NPCProperties properties;
     public List<Dialogue> dialogues = new();
@@ -17,13 +17,23 @@ public class NPCScript : MonoBehaviour, IDialogueSender
         controller.ReceiveDialogue(temp, true, this);
     }
 
-    void IDialogueSender.OnRepliedDialogue()
+    public void OnRepliedDialogue()
     {
         throw new System.NotImplementedException();
     }
 
-    void IDialogueSender.OnSendDialogue()
+    public void OnSendDialogue()
     {
+        throw new System.NotImplementedException();
+    }
+    public void SendTask(PlayerController controller){
+        
+        throw new System.NotImplementedException();
+    }
+    public void OnSendTask(){
+        throw new System.NotImplementedException();
+    }
+    public void OnAccomplishedTask(){
         throw new System.NotImplementedException();
     }
 }

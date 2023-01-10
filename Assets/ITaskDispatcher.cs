@@ -1,12 +1,14 @@
-using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Threading.Tasks;
 using TaskSystem;
+using UnityEngine;
 
 public interface ITaskDispatcher
 {
     void OnSendTask();
+
     void OnAccomplishedTask();
-    void SendTask();
+
+    void SendTask(PlayerController controller);
 }
