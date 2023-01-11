@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using NPCDependencies;
+using TaskSystem;
 
 public class InGameUI : MonoBehaviour
 {
@@ -18,8 +19,11 @@ public class InGameUI : MonoBehaviour
     [Space, Header("Task UI")]
     [SerializeField] GameObject taskUI;
     [SerializeField] Text title;
-    [SerializeField] GameObject taskPrefab, subtaskPrefab;
+    [SerializeField] protected GameObject taskPrefab, subtaskPrefab;
+    [SerializeField] protected Transform taskPrefabHolder;
     float duration;
+    Dictionary<SubtaskInfo, SubtaskItem> subtaskDict = new();
+    Dictionary<TaskInfo, TaskItem> taskDict = new();
     void Awake()
     {
         DialogueUI.ui = this;
@@ -81,10 +85,30 @@ public class InGameUI : MonoBehaviour
         {
             if (!enabled) return;
         }
+        public static TaskInfo AddTaskUI(TaskInfo info){
+            TaskItem uiItem = Instantiate(ui.taskPrefab, ui.taskPrefabHolder).GetComponent<TaskItem>();
+            uiItem.SetAppearance(info.taskName);
+            ui.taskDict.Add(info, uiItem);
+            foreach(SubtaskInfo tp in info.subtasks){
+                SubtaskItem temp = Instantiate(ui.subtaskPrefab, uiItem.subtaskUIHolder).GetComponent<SubtaskItem>();
+                uiItem.subtaskItems.Add(temp);
+                temp.father = uiItem;
+                temp.SetAppearance(tp.taskContent, $"{tp.current}/{tp.limit}");
+                ui.subtaskDict.Add(tp, temp);
+            }
+            return info;
+        }
+        public static TaskInfo RemoveTaskUI(TaskInfo info){
+            ui.taskDict[info].Finished();
+            return info;
+        }
     }
     void Update()
     {
         DialogueUI.UpdateUI();
+    }
+    void FixedUpdate()
+    {
         TaskUI.UpdateUI();
     }
 }

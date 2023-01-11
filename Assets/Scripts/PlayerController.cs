@@ -367,7 +367,9 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
         static void CheckAccomplishment(TaskInfo info){
             if(info.subtasks.Count >= 1){
                 foreach(SubtaskInfo tp in info.subtasks){
-
+                    if(tp.current >= tp.limit){
+                        
+                    }
                 }
             }
         }

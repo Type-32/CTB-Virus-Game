@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SubtaskItem : MonoBehaviour
 {
+    [HideInInspector] public TaskItem father;
     [SerializeField] Text content, demand;
     [SerializeField] Image icon;
     [SerializeField] CanvasGroup group;
@@ -12,10 +13,13 @@ public class SubtaskItem : MonoBehaviour
     {
         this.content.text = text;
         this.demand.text = demand;
-        this.icon.sprite = icon;
+        if(icon != null) this.icon.sprite = icon;
     }
-    public void Finished()
+    public void Finished(bool finishFather = false)
     {
         group.alpha = 0.3f;
+        if(finishFather){
+            
+        }
     }//
 }

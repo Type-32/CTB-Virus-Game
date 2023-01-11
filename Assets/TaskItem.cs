@@ -8,17 +8,16 @@ public class TaskItem : MonoBehaviour
     [SerializeField] Text title;
     [SerializeField] Image icon;
     [SerializeField] CanvasGroup group;
+    [SerializeField] public Transform subtaskUIHolder;
+    [HideInInspector] public List<SubtaskItem> subtaskItems;
     public void SetAppearance(string title, Sprite icon = null)
     {
         this.title.text = title;
-        this.icon.sprite = icon;
+        if(icon != null) this.icon.sprite = icon;
     }
-    public void Selected()
+    public void Finished()
     {
         group.alpha = 0.3f;
-    }
-    public void AddSubtask()
-    {
-
+        Destroy(this.gameObject);
     }
 }
