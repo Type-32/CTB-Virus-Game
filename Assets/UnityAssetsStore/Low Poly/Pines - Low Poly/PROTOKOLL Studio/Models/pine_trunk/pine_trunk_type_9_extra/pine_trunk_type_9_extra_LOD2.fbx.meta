@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: c85cf07a8de0f3b42948bd45db3305f7
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 5557473275781351902
+    second: pt_type_9.001|Circle.084Action
+  - first:
+      74: -2292038779238621617
+    second: pt_type_9.001|Circle.084Action.002
+  - first:
+      74: -8563113269967072781
+    second: pt_type_9.001|Circle.084Action.003
+  - first:
+      74: 709671911807010704
+    second: pt_type_9.001|Circle.084Action.004
+  - first:
+      74: 8494278085213303576
+    second: pt_type_9.001|Circle.084Action.005
+  - first:
+      74: -8320455151948435027
+    second: pt_type_9.001|Circle.084Action.006
+  - first:
+      74: 8458803084159378194
+    second: pt_type_9.001|Circle.084Action.007
+  - first:
+      74: 1613362803982435282
+    second: pt_type_9.001|Circle.084Action.009
+  - first:
+      74: -5897409479633718185
+    second: pt_type_9.001|Circle.085Action
+  - first:
+      74: -4423094831673997697
+    second: pt_type_9.001|Circle.086Action
+  - first:
+      74: 1716310226115332361
+    second: pt_type_9.001|Circle.088Action
+  - first:
+      74: -6644592202016706447
+    second: pt_type_9.001|Circle.090Action
+  - first:
+      74: 7204073659788835415
+    second: pt_type_9.001|Circle.090Action.001
+  - first:
+      74: 653512226861584186
+    second: pt_type_9.001|Circle.090Action.002
+  - first:
+      74: -4570739455696223569
+    second: pt_type_9.001|Circle.104Action
+  - first:
+      74: 1257600746736521528
+    second: pt_type_9.001|Circle.104Action.001
+  - first:
+      74: 1121491530951513312
+    second: pt_type_9.001|CylinderAction
+  - first:
+      74: -8599941484049964864
+    second: pt_type_9.001|CylinderAction.001
+  - first:
+      74: 7593771090853872980
+    second: pt_type_9.001|CylinderAction.002
+  - first:
+      74: 6008437696459547369
+    second: pt_type_9.001|CylinderAction.003
+  - first:
+      74: 5058095157825145785
+    second: pt_type_9.001|CylinderAction.004
+  - first:
+      74: -1605101315704961922
+    second: pt_type_9.001|CylinderAction.005
+  - first:
+      74: -9145241844012536083
+    second: pt_type_9.001|CylinderAction.006
+  - first:
+      74: -6714454831712989003
+    second: pt_type_9.001|CylinderAction.007
+  - first:
+      74: -202751579400965181
+    second: pt_type_9.001|CylinderAction.008
+  - first:
+      74: 1726432789035418783
+    second: pt_type_9.001|CylinderAction.009
+  - first:
+      74: 3379015689613784956
+    second: pt_type_9.001|CylinderAction.010
+  - first:
+      74: 8713807349844461598
+    second: pt_type_9.001|CylinderAction.011
+  - first:
+      74: -994703847735865062
+    second: pt_type_9.001|CylinderAction.012
+  - first:
+      74: -4509995699949918266
+    second: pt_type_9.001|CylinderAction.013
+  - first:
+      74: -6785416291557056636
+    second: pt_type_9.001|CylinderAction.014
+  - first:
+      74: 1509975316054510022
+    second: pt_type_9.001|CylinderAction.015
+  - first:
+      74: 709837893094596130
+    second: pt_type_9.001|CylinderAction.016
+  - first:
+      74: 3020221078659227085
+    second: pt_type_9.001|CylinderAction.017
+  - first:
+      74: 1548829919838783939
+    second: pt_type_9.001|CylinderAction.018
+  - first:
+      74: 7197850584756081676
+    second: pt_type_9.001|CylinderAction.019
+  - first:
+      74: 1131947426255100921
+    second: pt_type_9.001|CylinderAction.020
+  - first:
+      74: 1724193294093891110
+    second: pt_type_9.001|CylinderAction.021
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

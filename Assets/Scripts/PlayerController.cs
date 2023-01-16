@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
         PlayerCamera.player = this;
         PlayerMovement.SetNoclip(false);
         ui = FindObjectOfType<InGameUI>();
-        InGameUI.DialogueUI.SetUIActive(false);
+        ui.SetUIActive(false);
     }
     void Start()
     {
@@ -379,6 +379,7 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
             {
                 ITaskableObject temp = hit.collider.GetComponent<ITaskableObject>();
                 temp?.ConsumeObject(player);
+                
             }
         }
     }

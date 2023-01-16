@@ -111,4 +111,5 @@ public class InGameUI : MonoBehaviour
     {
         TaskUI.UpdateUI();
     }
+    public void SetUIActive(bool boolean) { DialogueUI.SetUIActive(boolean); }
 }
