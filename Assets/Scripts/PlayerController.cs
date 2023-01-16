@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
         PlayerCamera.player = this;
         PlayerMovement.SetNoclip(false);
         ui = FindObjectOfType<InGameUI>();
-        ui.SetUIActive(false);
     }
     void Start()
     {

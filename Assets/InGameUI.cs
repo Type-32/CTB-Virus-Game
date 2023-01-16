@@ -28,6 +28,7 @@ public class InGameUI : MonoBehaviour
     {
         DialogueUI.ui = this;
         TaskUI.ui = this;
+        InGameUI.DialogueUI.SetUIActive(false);
     }
     public static class DialogueUI
     {
