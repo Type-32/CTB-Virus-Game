@@ -10,5 +10,5 @@ public interface ITaskDispatcher
 
     void OnAccomplishedTask();
 
-    void SendTask(PlayerController controller);
+    void SendTask();
 }

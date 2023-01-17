@@ -1126,6 +1126,7 @@ MonoBehaviour:
     type: 3}
   subtaskPrefab: {fileID: 5000617901649043969, guid: f36c71b6babd3ce48b54955c359d17ff,
     type: 3}
+  taskPrefabHolder: {fileID: 9004306917856439747}
 --- !u!1 &7811932228653594946
 GameObject:
   m_ObjectHideFlags: 0

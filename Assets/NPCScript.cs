@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NPCDependencies;
+using TaskSystem;
 
 public class NPCScript : MonoBehaviour, IDialogueSender, ITaskDispatcher
 {
     public NPCProperties properties;
+    public TaskInfo taskInfo;
     public List<Dialogue> dialogues = new();
     public void SendDialogue(PlayerController controller)
     {
@@ -26,9 +28,9 @@ public class NPCScript : MonoBehaviour, IDialogueSender, ITaskDispatcher
     {
         throw new System.NotImplementedException();
     }
-    public void SendTask(PlayerController controller){
-        
-        throw new System.NotImplementedException();
+    public void SendTask(){
+        PlayerController controller = FindObjectOfType<PlayerController>();
+        controller.ReceiveTask(taskInfo);
     }
     public void OnSendTask(){
         throw new System.NotImplementedException();

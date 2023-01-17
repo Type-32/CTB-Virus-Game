@@ -8,6 +8,7 @@ using TaskSystem;
 
 public class InGameUI : MonoBehaviour
 {
+    public static InGameUI Instance;
     public GameObject hud, gui;
     [Space, Header("Dialogue UI")]
     public GameObject dialogueUI;
@@ -22,10 +23,11 @@ public class InGameUI : MonoBehaviour
     [SerializeField] protected GameObject taskPrefab, subtaskPrefab;
     [SerializeField] protected Transform taskPrefabHolder;
     float duration;
-    Dictionary<SubtaskInfo, SubtaskItem> subtaskDict = new();
-    Dictionary<TaskInfo, TaskItem> taskDict = new();
+    public Dictionary<SubtaskInfo, SubtaskItem> subtaskDict = new();
+    public Dictionary<TaskInfo, TaskItem> taskDict = new();
     void Awake()
     {
+        Instance = this;
         DialogueUI.ui = this;
         TaskUI.ui = this;
         InGameUI.DialogueUI.SetUIActive(false);
@@ -87,8 +89,9 @@ public class InGameUI : MonoBehaviour
             if (!enabled) return;
         }
         public static TaskInfo AddTaskUI(TaskInfo info){
+            Debug.Log("Adding Task UI Component...");
             TaskItem uiItem = Instantiate(ui.taskPrefab, ui.taskPrefabHolder).GetComponent<TaskItem>();
-            uiItem.SetAppearance(info.taskName);
+            uiItem.SetAppearance(info.taskName, info);
             ui.taskDict.Add(info, uiItem);
             foreach(SubtaskInfo tp in info.subtasks){
                 SubtaskItem temp = Instantiate(ui.subtaskPrefab, uiItem.subtaskUIHolder).GetComponent<SubtaskItem>();
@@ -100,7 +103,17 @@ public class InGameUI : MonoBehaviour
             return info;
         }
         public static TaskInfo RemoveTaskUI(TaskInfo info){
-            ui.taskDict[info].Finished();
+            foreach(SubtaskInfo tp in info.subtasks){
+                if(ui.subtaskDict.ContainsKey(tp)){
+                    ui.subtaskDict[tp].Finished();
+                    ui.subtaskDict.Remove(tp);
+                }
+            }
+            if(ui.taskDict.ContainsKey(info))
+            {
+                ui.taskDict[info].Finished();
+                ui.taskDict.Remove(info);
+            }
             return info;
         }
     }
@@ -111,6 +124,14 @@ public class InGameUI : MonoBehaviour
     void FixedUpdate()
     {
         TaskUI.UpdateUI();
+    }
+    public TaskInfo AddTaskUI(TaskInfo info)
+    {
+        return InGameUI.TaskUI.AddTaskUI(info);
+    }
+    public TaskInfo RemoveTaskUI(TaskInfo info)
+    {
+        return InGameUI.TaskUI.RemoveTaskUI(info);
     }
     public void SetUIActive(bool boolean) { DialogueUI.SetUIActive(boolean); }
 }

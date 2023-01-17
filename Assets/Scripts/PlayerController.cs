@@ -349,7 +349,7 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
     {
         public static PlayerController player;
         static bool enabled = true;
-        static List<TaskInfo> taskInfos;
+        static List<TaskInfo> taskInfos = new();
         public static void SetComponentActive(bool boolean)
         {
             enabled = boolean;
@@ -363,13 +363,28 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
             }
             //if()
         }
-        static void CheckAccomplishment(TaskInfo info){
+        static void CheckTaskAccomplishment(TaskInfo info){
             if(info.subtasks.Count >= 1){
-                foreach(SubtaskInfo tp in info.subtasks){
-                    if(tp.current >= tp.limit){
-                        
+                for (int i = 0; i < info.subtasks.Count; i++){
+                    if(info.subtasks[i].current >= info.subtasks[i].limit){
+                        player.ui.subtaskDict[info.subtasks[i]].Finished();
+                        info.subtasks[i].finishedEvent.Invoke();
+                        info.subtasks.Remove(info.subtasks[i]);
+                        if (info.subtasks.Count <= 0)
+                        {
+                            player.ui.RemoveTaskUI(info);
+                            taskInfos.Remove(info);
+                        }
                     }
                 }
+            }else{
+                player.ui.RemoveTaskUI(info);
+                taskInfos.Remove(info);
+            }
+        }
+        public static void RefreshTaskList(){
+            for (int i = 0; i < taskInfos.Count; i++){
+                CheckTaskAccomplishment(taskInfos[i]);
             }
         }
         static void CheckInteraction(){
@@ -378,7 +393,34 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
             {
                 ITaskableObject temp = hit.collider.GetComponent<ITaskableObject>();
                 temp?.ConsumeObject(player);
-                
+                PlayerTasks.RefreshTaskList();
+                Debug.Log("Attempt To Consume Item...");
+            }
+        }
+        public static void FindTaskObjectInfo(TaskableObjectInfo info){
+            foreach(TaskInfo infos in taskInfos){
+                SubtaskInfo sub = infos.ContainsSearchID(info.searchKey, info.searchCode);
+                if(sub != null){
+                    sub.current++;
+                    Debug.Log("Found Subinfo");
+                }
+            }
+            Debug.Log("Finding Task obkect Info...");
+        }
+        public static void AddTask(TaskInfo info)
+        {
+            if(!taskInfos.Contains(info)) {
+                player.ui.AddTaskUI(info);
+                taskInfos.Add(info);
+                RefreshTaskList();
+            }
+        }
+        public static void RemoveTask(TaskInfo info)
+        {
+            if(taskInfos.Contains(info)) {
+                taskInfos.Remove(info);
+                player.ui.RemoveTaskUI(info);
+                RefreshTaskList();
             }
         }
     }
@@ -446,9 +488,20 @@ public class PlayerController : MonoBehaviour, IDialogueReceiver, ITaskReceiver
     {
 
     }
-    public void ReceiveTask()
+    public void ReceiveTask(TaskInfo info)
     {
-
+        if(info != new TaskInfo())
+        {
+            if(info.subtasks.Count >= 1){
+                PlayerTasks.AddTask(info);
+            }
+        }else{
+            
+        }
+    }
+    public void ReceiveTaskableObject(TaskableObjectInfo taskObjInfo){
+        PlayerTasks.FindTaskObjectInfo(taskObjInfo);
+        PlayerTasks.RefreshTaskList();
     }
     #endregion
 }

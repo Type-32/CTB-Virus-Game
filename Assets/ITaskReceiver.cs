@@ -8,5 +8,5 @@ public interface ITaskReceiver
 {
     void OnReceiveTask();
     void OnFinishTask();
-    void ReceiveTask();
+    void ReceiveTask(TaskInfo info);
 }

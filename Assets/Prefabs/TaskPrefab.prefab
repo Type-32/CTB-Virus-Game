@@ -213,6 +213,8 @@ MonoBehaviour:
   title: {fileID: 7790937755282558142}
   icon: {fileID: 2928722420825554819}
   group: {fileID: 3839811640773209777}
+  subtaskUIHolder: {fileID: 6767933204091374531}
+  subtaskItems: []
 --- !u!225 &3839811640773209777
 CanvasGroup:
   m_ObjectHideFlags: 0

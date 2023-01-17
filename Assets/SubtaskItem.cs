@@ -17,9 +17,6 @@ public class SubtaskItem : MonoBehaviour
     }
     public void Finished(bool finishFather = false)
     {
-        group.alpha = 0.3f;
-        if(finishFather){
-            
-        }
+        group.alpha = 0.1f;
     }//
 }
